@@ -19,5 +19,11 @@ public interface OrganisationFeignClint {
     Organization getOrganisation(@PathVariable("organisationId") String organisationId);
 
 
+    @RequestMapping(
+            method = RequestMethod.GET,
+            value= "v1/check/feign"
+    )
+    String check();
+
 
 }

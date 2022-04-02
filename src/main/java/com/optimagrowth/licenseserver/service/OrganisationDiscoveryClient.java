@@ -32,5 +32,15 @@ public class OrganisationDiscoveryClient {
         return  exchange.getBody();
     }
 
+    public String check(){
+        RestTemplate restTemplate = new RestTemplate();
+        List<ServiceInstance> instances = discoveryClient.getInstances("organisation-service");
+        if (instances.size()==0 )
+            return null;
+        String serviceUri = String.format("%s/v1/check/organisation",instances.get(0).getUri().toString());
+
+        ResponseEntity<String> exchange = restTemplate.exchange(serviceUri, HttpMethod.GET, null, String.class);
+        return  exchange.getBody();
+    }
 
 }
