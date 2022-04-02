@@ -1,16 +1,13 @@
 package com.optimagrowth.licenseserver.service;
 
-import com.optimagrowth.licenseserver.controller.LicenseController;
 import com.optimagrowth.licenseserver.model.License;
 import com.optimagrowth.licenseserver.repository.LicenseRepository;
 import lombok.RequiredArgsConstructor;
+import org.apache.maven.model.Organization;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Service;
-import static  org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.*;
 
 import java.util.Locale;
-import java.util.Objects;
-import java.util.Random;
 import java.util.UUID;
 
 /**
@@ -26,12 +23,23 @@ public class LicenseService {
 
     private  final ServiceConfig serviceConfig;
 
-    public License getLicense(String licenseId, String organizationId) {
+    public License getLicense(String licenseId, String organizationId, String clientType) {
         License license = licenseRepository.findByOrganisationIdAndLicenseId(organizationId,licenseId);
+        if (null ==license){
+            throw  new IllegalArgumentException(String.format(messageSource.getMessage("license.search.error.message",null,null)));
+        }
         if (license==null){
             throw new IllegalArgumentException(String.format(messageSource.getMessage("license.search.error.message",new Object[]{null,null,licenseId,organizationId},Locale.US)));
         }
+        Organization organization = retrieveOrganizationInfo(organizationId, clientType);
+
+
         return license.withComment(serviceConfig.getProperty());
+
+    }
+
+    private Organization retrieveOrganizationInfo(String organizationId, String clientType) {
+        return null;
     }
 
     public License createLicense(License license, String organisationId, Locale locale) {

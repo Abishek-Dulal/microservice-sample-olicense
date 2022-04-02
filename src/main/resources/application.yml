@@ -2,6 +2,10 @@ spring:
     application:
       name: licensing-service
     profiles:
-      active: dev
+      active: default
     config:
       import: configserver:http://127.0.0.1:8071
+
+encrypt:
+  key: IMSYMMETRIC
+

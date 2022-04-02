@@ -6,6 +6,7 @@ import lombok.ToString;
 import org.springframework.hateoas.RepresentationModel;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -14,6 +15,7 @@ import javax.persistence.Table;
  */
 @Getter
 @Setter
+@Entity
 @Table(schema = "license_server",name="licenses")
 @ToString
 public class License extends RepresentationModel<License> {
