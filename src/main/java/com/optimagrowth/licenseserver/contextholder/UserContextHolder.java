@@ -1,6 +1,4 @@
-package com.optimagrowth.licenseserver.service;
-
-import org.apache.catalina.User;
+package com.optimagrowth.licenseserver.contextholder;
 
 /**
  * @author abishek on 2022-04-03

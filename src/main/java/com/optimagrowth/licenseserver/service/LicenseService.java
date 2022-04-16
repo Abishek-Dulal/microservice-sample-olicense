@@ -1,5 +1,6 @@
 package com.optimagrowth.licenseserver.service;
 
+import com.optimagrowth.licenseserver.contextholder.UserContextHolder;
 import com.optimagrowth.licenseserver.model.License;
 import com.optimagrowth.licenseserver.repository.LicenseRepository;
 import io.github.resilience4j.bulkhead.annotation.Bulkhead;

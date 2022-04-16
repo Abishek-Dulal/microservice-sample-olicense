@@ -1,4 +1,4 @@
-package com.optimagrowth.licenseserver.service;
+package com.optimagrowth.licenseserver.contextholder;
 
 import org.springframework.stereotype.Component;
 

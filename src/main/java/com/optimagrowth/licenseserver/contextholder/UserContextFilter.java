@@ -1,4 +1,4 @@
-package com.optimagrowth.licenseserver.service;
+package com.optimagrowth.licenseserver.contextholder;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
